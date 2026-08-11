@@ -58,7 +58,7 @@ export default function HomePage() {
           <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
           <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
         </div>
-        <div className="container-px relative grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
+        <div className="container-px relative grid items-center gap-10 pb-16 pt-24 md:grid-cols-2 md:pb-24 md:pt-32">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export default function HomePage() {
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/40 px-4 py-1.5 text-xs uppercase tracking-widest text-gold">
               <Star className="h-3.5 w-3.5 fill-current" /> Made in Karnataka
             </p>
-            <h1 className="font-display text-4xl leading-tight text-neutral-50 sm:text-5xl lg:text-6xl">
+            <h1 className="pb-1 font-display text-4xl leading-[1.15] text-neutral-50 sm:text-5xl lg:text-6xl">
               {hero?.title || "Style That Fits."} <span className="gold-text">{!hero && "Confidence That Shows."}</span>
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-400">
@@ -104,15 +104,13 @@ export default function HomePage() {
       </section>
 
       {/* Marquee */}
-      <div className="overflow-hidden border-b border-neutral-800 bg-ink-soft py-4">
-        <div className="flex animate-[shimmer_none] whitespace-nowrap">
-          <div className="flex min-w-full shrink-0 items-center justify-around gap-10 text-sm uppercase tracking-widest text-neutral-400">
-            {marquee.concat(marquee).map((m, i) => (
-              <span key={i} className="flex items-center gap-3">
-                <span className="text-gold">◆</span> {m}
-              </span>
-            ))}
-          </div>
+      <div className="group overflow-hidden border-b border-neutral-800 bg-ink-soft py-4">
+        <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap pl-10 text-sm uppercase tracking-widest text-neutral-400 group-hover:[animation-play-state:paused]">
+          {marquee.concat(marquee).map((m, i) => (
+            <span key={i} className="flex items-center gap-3">
+              <span className="text-gold">◆</span> {m}
+            </span>
+          ))}
         </div>
       </div>
 
